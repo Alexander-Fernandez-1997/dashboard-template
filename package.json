@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "instrospect": "drizzle-kit introspect:pg --config=drizzle.config.ts",
+    "generate-migration": "drizzle-kit generate:pg --out src/lib/db/migrations --schema src/lib/db/schema.ts",
+    "push": "node -r  esbuild-register src/lib/db/migrate.ts",
+    "rollback": "drizzle-kit rollback:pg"
   },
   "dependencies": {
     "@types/node": "20.4.1",
@@ -15,8 +19,18 @@
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.9",
     "next": "13.4.9",
+    "next-auth": "^4.22.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typescript": "5.1.6"
+    "react-icons": "^4.10.1",
+    "typescript": "5.1.6",
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.1.4",
+    "drizzle-orm": "^0.26.5",
+    "pg": "^8.11.0"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.10.2",
+    "drizzle-kit": "^0.18.1"
   }
 }
